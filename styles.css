@@ -2,9 +2,9 @@
   color-scheme: dark;
   --bg: #050505;
   --panel: #0c0c0f;
-  --accent: #f5f5f5;
-  --accent-2: #9b9b9b;
-  --glow: rgba(245, 245, 245, 0.2);
+  --accent: #e9dcff;
+  --accent-2: #a78bfa;
+  --glow: rgba(167, 139, 250, 0.45);
   --text: #f7f7f7;
   --muted: #b6b6b6;
 }
@@ -17,7 +17,7 @@
 
 body {
   font-family: "Manrope", sans-serif;
-  background: radial-gradient(circle at top, #1a1a1a 0%, var(--bg) 70%);
+  background: radial-gradient(circle at top, #1d1428 0%, var(--bg) 70%);
   color: var(--text);
   min-height: 100vh;
   line-height: 1.7;
@@ -29,8 +29,8 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  box-shadow: inset 0 0 120px rgba(167, 139, 250, 0.12);
   z-index: 0;
 }
 
@@ -59,6 +59,7 @@ a {
   font-size: 1.1rem;
   text-transform: uppercase;
   color: var(--text);
+  text-shadow: 0 0 18px rgba(167, 139, 250, 0.35);
 }
 
 .nav-links {
@@ -88,7 +89,7 @@ a {
   text-transform: uppercase;
   font-size: 0.85rem;
   letter-spacing: 3px;
-  color: var(--accent-2);
+  color: var(--accent);
   margin-bottom: 1rem;
 }
 
@@ -97,6 +98,7 @@ a {
   font-size: clamp(2.8rem, 4vw, 4.5rem);
   line-height: 1.1;
   margin-bottom: 1.5rem;
+  text-shadow: 0 0 26px rgba(167, 139, 250, 0.25);
 }
 
 .lead {
@@ -123,17 +125,17 @@ a {
 .btn.primary {
   background: var(--accent);
   color: #050505;
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 24px rgba(167, 139, 250, 0.35);
 }
 
 .btn.ghost {
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.25);
   color: var(--text);
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 18px rgba(167, 139, 250, 0.3);
 }
 
 .hero-orb {
@@ -144,7 +146,7 @@ a {
   width: min(320px, 40vw);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 70%);
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.18), transparent 70%);
   filter: blur(1px);
   opacity: 0.8;
 }
@@ -153,8 +155,8 @@ a {
   position: absolute;
   inset: 18%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.25), rgba(16, 16, 16, 0.9));
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.35), rgba(16, 16, 16, 0.9));
+  box-shadow: 0 0 35px rgba(167, 139, 250, 0.35);
 }
 
 .section {
@@ -174,7 +176,7 @@ a {
 
 .section-eyebrow,
 .section__eyebrow {
-  color: var(--accent-2);
+  color: var(--accent);
   letter-spacing: 3px;
   text-transform: uppercase;
   font-size: 0.8rem;
@@ -206,8 +208,8 @@ a {
   padding: 1.8rem;
   border-radius: 16px;
   background: rgba(14, 14, 14, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(167, 139, 250, 0.15);
+  box-shadow: 0 0 24px rgba(167, 139, 250, 0.08);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -222,8 +224,8 @@ a {
 }
 
 .card:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+  border-color: rgba(167, 139, 250, 0.45);
+  box-shadow: 0 0 28px rgba(167, 139, 250, 0.2);
 }
 
 .facts {
@@ -239,9 +241,10 @@ a {
 .fact {
   padding: 1.8rem;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.15);
   background: rgba(12, 12, 12, 0.8);
   text-align: center;
+  box-shadow: 0 0 22px rgba(167, 139, 250, 0.08);
 }
 
 .fact__number {
@@ -278,7 +281,7 @@ a {
   background: rgba(12, 12, 12, 0.8);
   padding: 1rem 1.4rem;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.12);
 }
 
 .stats span {
@@ -296,8 +299,8 @@ a {
   background: rgba(8, 8, 8, 0.9);
   border-radius: 20px;
   padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  box-shadow: 0 0 36px rgba(167, 139, 250, 0.14);
 }
 
 .about-panel h3 {
@@ -314,7 +317,7 @@ a {
 
 .about-panel li::before {
   content: "▹";
-  color: var(--accent-2);
+  color: var(--accent);
   margin-right: 0.5rem;
 }
 
@@ -331,8 +334,9 @@ a {
 .process__card {
   border-radius: 18px;
   padding: 1.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.15);
   background: rgba(12, 12, 12, 0.85);
+  box-shadow: 0 0 22px rgba(167, 139, 250, 0.08);
 }
 
 .process__card h3 {
@@ -362,8 +366,9 @@ a {
   width: min(320px, 90vw);
   border-radius: 18px;
   padding: 1.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.15);
   background: rgba(10, 10, 10, 0.85);
+  box-shadow: 0 0 18px rgba(167, 139, 250, 0.12);
 }
 
 .review__header {
@@ -378,7 +383,7 @@ a {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(167, 139, 250, 0.15);
   display: grid;
   place-items: center;
   font-weight: 600;
@@ -410,9 +415,10 @@ a {
   min-width: 200px;
   border-radius: 16px;
   padding: 1.4rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(167, 139, 250, 0.18);
   background: rgba(12, 12, 12, 0.8);
   text-align: center;
+  box-shadow: 0 0 18px rgba(167, 139, 250, 0.12);
 }
 
 .client__mark {
@@ -422,7 +428,7 @@ a {
   display: grid;
   place-items: center;
   margin: 0 auto 0.75rem;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(167, 139, 250, 0.15);
   font-weight: 600;
 }
 
@@ -437,8 +443,8 @@ a {
   background: rgba(12, 12, 12, 0.85);
   border-radius: 20px;
   padding: 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  box-shadow: 0 0 40px rgba(167, 139, 250, 0.15);
 }
 
 .contact-card p {
@@ -457,7 +463,7 @@ a {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--accent-2);
+  color: var(--accent);
   margin-bottom: 0.3rem;
 }
 
@@ -511,6 +517,7 @@ a {
 
   .nav-links {
     flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   .hero-content {
@@ -519,5 +526,18 @@ a {
 
   .contact-card {
     padding: 2rem 1.5rem;
+  }
+
+  .reviews__track,
+  .clients__track {
+    animation-duration: 40s;
+  }
+
+  .review {
+    width: min(280px, 85vw);
+  }
+
+  .client {
+    min-width: 160px;
   }
 }
