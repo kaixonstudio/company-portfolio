@@ -1,12 +1,12 @@
 :root {
   color-scheme: dark;
-  --bg: #05050b;
-  --panel: #101025;
-  --accent: #5b8bff;
-  --accent-2: #c05bff;
-  --glow: rgba(91, 139, 255, 0.5);
-  --text: #e6e8f2;
-  --muted: #b0b4c6;
+  --bg: #050505;
+  --panel: #0c0c0f;
+  --accent: #f5f5f5;
+  --accent-2: #9b9b9b;
+  --glow: rgba(245, 245, 245, 0.2);
+  --text: #f7f7f7;
+  --muted: #b6b6b6;
 }
 
 * {
@@ -16,11 +16,11 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  background: radial-gradient(circle at top, #11122a 0%, var(--bg) 60%);
+  font-family: "Manrope", sans-serif;
+  background: radial-gradient(circle at top, #1a1a1a 0%, var(--bg) 70%);
   color: var(--text);
   min-height: 100vh;
-  line-height: 1.6;
+  line-height: 1.7;
   position: relative;
   overflow-x: hidden;
 }
@@ -29,8 +29,8 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  border: 1px solid rgba(91, 139, 255, 0.3);
-  box-shadow: inset 0 0 80px rgba(91, 139, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.08);
   z-index: 0;
 }
 
@@ -53,13 +53,12 @@ a {
 }
 
 .logo {
-  font-family: "Orbitron", sans-serif;
-  font-weight: 700;
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
   letter-spacing: 1px;
   font-size: 1.1rem;
   text-transform: uppercase;
   color: var(--text);
-  text-shadow: 0 0 12px rgba(192, 91, 255, 0.6);
 }
 
 .nav-links {
@@ -75,7 +74,7 @@ a {
 
 .nav-links a:hover {
   color: var(--text);
-  text-shadow: 0 0 12px var(--accent);
+  text-shadow: 0 0 12px var(--glow);
 }
 
 .hero-content {
@@ -89,16 +88,15 @@ a {
   text-transform: uppercase;
   font-size: 0.85rem;
   letter-spacing: 3px;
-  color: var(--accent);
+  color: var(--accent-2);
   margin-bottom: 1rem;
 }
 
 .hero h1 {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: clamp(2.8rem, 4vw, 4.5rem);
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  text-shadow: 0 0 18px rgba(91, 139, 255, 0.45);
 }
 
 .lead {
@@ -123,19 +121,19 @@ a {
 }
 
 .btn.primary {
-  background: linear-gradient(120deg, var(--accent), var(--accent-2));
-  color: #05050b;
-  box-shadow: 0 0 20px rgba(91, 139, 255, 0.5);
+  background: var(--accent);
+  color: #050505;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
 }
 
 .btn.ghost {
-  border: 1px solid rgba(91, 139, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--text);
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 16px rgba(192, 91, 255, 0.6);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
 }
 
 .hero-orb {
@@ -146,7 +144,7 @@ a {
   width: min(320px, 40vw);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(91, 139, 255, 0.7), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 70%);
   filter: blur(1px);
   opacity: 0.8;
 }
@@ -155,8 +153,8 @@ a {
   position: absolute;
   inset: 18%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(192, 91, 255, 0.8), rgba(16, 16, 37, 0.9));
-  box-shadow: 0 0 30px rgba(192, 91, 255, 0.6), 0 0 60px rgba(91, 139, 255, 0.5);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25), rgba(16, 16, 16, 0.9));
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 .section {
@@ -167,22 +165,34 @@ a {
 
 .section-header h2,
 .about-content h2,
-.contact-card h2 {
-  font-family: "Orbitron", sans-serif;
+.contact-card h2,
+.section__header h2 {
+  font-family: "Sora", sans-serif;
   font-size: clamp(2rem, 3vw, 2.8rem);
   margin-bottom: 1rem;
 }
 
-.section-eyebrow {
-  color: var(--accent);
+.section-eyebrow,
+.section__eyebrow {
+  color: var(--accent-2);
   letter-spacing: 3px;
   text-transform: uppercase;
   font-size: 0.8rem;
   margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.section__header {
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+.section__header p {
+  color: var(--muted);
 }
 
 .services {
-  background: linear-gradient(120deg, rgba(16, 16, 37, 0.9), rgba(6, 6, 15, 0.9));
+  background: linear-gradient(135deg, rgba(12, 12, 12, 0.9), rgba(4, 4, 4, 0.9));
 }
 
 .service-grid {
@@ -195,14 +205,14 @@ a {
 .card {
   padding: 1.8rem;
   border-radius: 16px;
-  background: rgba(12, 12, 27, 0.7);
-  border: 1px solid rgba(91, 139, 255, 0.2);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  background: rgba(14, 14, 14, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card h3 {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Sora", sans-serif;
   margin-bottom: 0.8rem;
   font-size: 1.2rem;
 }
@@ -212,8 +222,38 @@ a {
 }
 
 .card:hover {
-  border-color: rgba(192, 91, 255, 0.6);
-  box-shadow: 0 0 25px rgba(91, 139, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+}
+
+.facts {
+  background: #080808;
+}
+
+.facts__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.fact {
+  padding: 1.8rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(12, 12, 12, 0.8);
+  text-align: center;
+}
+
+.fact__number {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.fact__label {
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .about {
@@ -235,14 +275,14 @@ a {
 }
 
 .stats div {
-  background: rgba(12, 12, 27, 0.7);
+  background: rgba(12, 12, 12, 0.8);
   padding: 1rem 1.4rem;
   border-radius: 12px;
-  border: 1px solid rgba(91, 139, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .stats span {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 1.5rem;
   display: block;
   margin-bottom: 0.3rem;
@@ -253,15 +293,15 @@ a {
 }
 
 .about-panel {
-  background: rgba(8, 8, 20, 0.9);
+  background: rgba(8, 8, 8, 0.9);
   border-radius: 20px;
   padding: 2rem;
-  border: 1px solid rgba(192, 91, 255, 0.3);
-  box-shadow: 0 0 30px rgba(192, 91, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
 }
 
 .about-panel h3 {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Sora", sans-serif;
   margin-bottom: 1rem;
 }
 
@@ -274,8 +314,116 @@ a {
 
 .about-panel li::before {
   content: "▹";
-  color: var(--accent);
+  color: var(--accent-2);
   margin-right: 0.5rem;
+}
+
+.process {
+  background: linear-gradient(180deg, rgba(8, 8, 8, 0.9), rgba(5, 5, 5, 0.9));
+}
+
+.process__grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.process__card {
+  border-radius: 18px;
+  padding: 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(12, 12, 12, 0.85);
+}
+
+.process__card h3 {
+  font-family: "Sora", sans-serif;
+  margin-bottom: 0.6rem;
+}
+
+.process__card p {
+  color: var(--muted);
+}
+
+.reviews__marquee,
+.clients__marquee {
+  overflow: hidden;
+  position: relative;
+}
+
+.reviews__track,
+.clients__track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.review {
+  width: min(320px, 90vw);
+  border-radius: 18px;
+  padding: 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 10, 0.85);
+}
+
+.review__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.review__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+}
+
+.review__header h3 {
+  font-size: 1rem;
+}
+
+.review__meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.review__rating {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.review__body {
+  color: var(--muted);
+}
+
+.clients__track {
+  padding-block: 1rem;
+}
+
+.client {
+  min-width: 200px;
+  border-radius: 16px;
+  padding: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(12, 12, 12, 0.8);
+  text-align: center;
+}
+
+.client__mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 600;
 }
 
 .contact {
@@ -286,11 +434,11 @@ a {
   max-width: 640px;
   margin: 0 auto;
   text-align: center;
-  background: rgba(12, 12, 27, 0.8);
+  background: rgba(12, 12, 12, 0.85);
   border-radius: 20px;
   padding: 3rem;
-  border: 1px solid rgba(91, 139, 255, 0.3);
-  box-shadow: 0 0 40px rgba(91, 139, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
 }
 
 .contact-card p {
@@ -309,7 +457,7 @@ a {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--accent);
+  color: var(--accent-2);
   margin-bottom: 0.3rem;
 }
 
@@ -323,6 +471,22 @@ a {
   text-align: center;
   color: var(--muted);
   font-size: 0.85rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews__track,
+  .clients__track {
+    animation: none;
+  }
 }
 
 @media (max-width: 900px) {
