@@ -429,8 +429,8 @@ a {
 }
 
 .contact-card {
-  width: min(100%, 1000px);
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   text-align: left;
   background: rgba(12, 12, 12, 0.85);
   border-radius: 20px;
@@ -440,7 +440,13 @@ a {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  align-items: start;
+  align-items: stretch;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .contact-info p {
@@ -451,6 +457,7 @@ a {
 .contact-details {
   display: grid;
   gap: 1.2rem;
+  margin-top: auto;
 }
 
 .contact-details span {
@@ -472,6 +479,7 @@ a {
   overflow: hidden;
   border: 1px solid rgba(255, 122, 26, 0.25);
   box-shadow: 0 0 32px rgba(255, 122, 26, 0.18);
+  align-self: end;
 }
 
 .contact-map iframe {
