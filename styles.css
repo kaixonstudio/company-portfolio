@@ -60,18 +60,6 @@ a {
   text-transform: uppercase;
   color: var(--text);
   text-shadow: 0 0 18px rgba(255, 122, 26, 0.45);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.logo img {
-  width: 56px;
-  height: 32px;
-  object-fit: contain;
-}
-
-.logo span {
   line-height: 1;
 }
 
@@ -156,20 +144,21 @@ a {
   top: 50%;
   right: 8vw;
   transform: translateY(-50%);
-  width: min(320px, 40vw);
+  width: min(360px, 44vw);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 122, 26, 0.22), transparent 70%);
-  filter: blur(1px);
-  opacity: 0.8;
+  background: radial-gradient(circle, rgba(255, 122, 26, 0.18), transparent 70%);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 40px rgba(255, 122, 26, 0.25);
+  opacity: 0.9;
 }
 
-.orb-core {
-  position: absolute;
-  inset: 18%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 122, 26, 0.4), rgba(16, 16, 16, 0.9));
-  box-shadow: 0 0 40px rgba(255, 122, 26, 0.4);
+.hero-orb img {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(255, 122, 26, 0.45));
 }
 
 .section {
