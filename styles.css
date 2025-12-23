@@ -507,6 +507,13 @@ a {
   box-shadow: 0 0 24px rgba(255, 122, 26, 0.12);
   display: grid;
   gap: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 28px rgba(255, 122, 26, 0.22);
 }
 
 .game-meta {
@@ -558,6 +565,103 @@ a {
 
 .game-actions a:hover {
   color: var(--accent);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  z-index: 50;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 60;
+  padding: 2rem;
+}
+
+.modal-content {
+  width: min(100%, 960px);
+  background: rgba(10, 10, 10, 0.95);
+  border: 1px solid rgba(255, 122, 26, 0.28);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 0 40px rgba(255, 122, 26, 0.25);
+  display: grid;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  border: none;
+  background: rgba(255, 122, 26, 0.15);
+  color: var(--text);
+  font-size: 1rem;
+  border-radius: 999px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.modal-header h2 {
+  font-family: "Sora", sans-serif;
+}
+
+.modal-genre {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+.modal-description {
+  color: var(--muted);
+}
+
+.modal-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.modal-gallery img {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 122, 26, 0.2);
+  box-shadow: 0 0 16px rgba(255, 122, 26, 0.18);
+}
+
+.modal-video video {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 122, 26, 0.2);
+  box-shadow: 0 0 16px rgba(255, 122, 26, 0.18);
+}
+
+@media (max-width: 700px) {
+  .modal {
+    padding: 1.5rem;
+  }
+
+  .modal-content {
+    padding: 2rem;
+  }
 }
 
 .footer {
