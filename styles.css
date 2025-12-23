@@ -662,6 +662,10 @@ a {
   display: block;
 }
 
+.carousel-frame [hidden] {
+  display: none;
+}
+
 .carousel-btn {
   border: none;
   background: rgba(255, 122, 26, 0.15);
