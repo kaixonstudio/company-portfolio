@@ -1,0 +1,18 @@
+<svg width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="120" rx="22" fill="#0B0B0B"/>
+  <path
+    d="M30 92C20 82 18 66 25 49C33 29 50 18 70 18H130C146 18 158 30 158 46V74C158 88 146 100 130 100H70C53 100 38 100 30 92Z"
+    fill="#FFFFFF"
+  />
+  <text
+    x="72"
+    y="72"
+    font-family="Sora, sans-serif"
+    font-size="36"
+    font-weight="700"
+    fill="#0B0B0B"
+    letter-spacing="2"
+  >
+    KAIXON
+  </text>
+</svg>
