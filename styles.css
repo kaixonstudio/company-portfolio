@@ -584,6 +584,11 @@ a {
   padding: 2rem;
 }
 
+.modal[hidden],
+.modal-overlay[hidden] {
+  display: none;
+}
+
 .modal-content {
   width: min(100%, 960px);
   background: rgba(10, 10, 10, 0.95);
@@ -634,24 +639,56 @@ a {
   color: var(--muted);
 }
 
-.modal-gallery {
+.modal-carousel {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: auto 1fr auto;
   gap: 1rem;
+  align-items: center;
 }
 
-.modal-gallery img {
+.carousel-frame {
+  position: relative;
+  min-height: 300px;
+}
+
+.carousel-frame img,
+.carousel-frame video {
   width: 100%;
   border-radius: 16px;
   border: 1px solid rgba(255, 122, 26, 0.2);
   box-shadow: 0 0 16px rgba(255, 122, 26, 0.18);
+  display: block;
 }
 
-.modal-video video {
-  width: 100%;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 122, 26, 0.2);
-  box-shadow: 0 0 16px rgba(255, 122, 26, 0.18);
+.carousel-btn {
+  border: none;
+  background: rgba(255, 122, 26, 0.15);
+  color: var(--text);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.carousel-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.carousel-dots .dot.active {
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(255, 122, 26, 0.6);
 }
 
 @media (max-width: 700px) {
@@ -661,6 +698,14 @@ a {
 
   .modal-content {
     padding: 2rem;
+  }
+
+  .modal-carousel {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-btn {
+    justify-self: center;
   }
 }
 

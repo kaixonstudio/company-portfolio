@@ -429,19 +429,24 @@
         <p id="modal-description" class="modal-description">
           Game description.
         </p>
-        <div class="modal-gallery">
-          <img id="modal-image-1" alt="Game preview 1" />
-          <img id="modal-image-2" alt="Game preview 2" />
-          <img id="modal-image-3" alt="Game preview 3" />
+        <div class="modal-carousel">
+          <button class="carousel-btn prev" type="button" aria-label="Previous">
+            ‹
+          </button>
+          <div class="carousel-frame">
+            <img id="modal-media" alt="Game preview" />
+            <video id="modal-video" controls hidden>
+              <source
+                src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+          <button class="carousel-btn next" type="button" aria-label="Next">
+            ›
+          </button>
         </div>
-        <div class="modal-video">
-          <video controls poster="" id="modal-video">
-            <source
-              src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
+        <div class="carousel-dots" aria-label="Preview navigation"></div>
       </div>
     </div>
 
@@ -452,26 +457,72 @@
       const modalTitle = document.querySelector("#modal-title");
       const modalGenre = document.querySelector("#modal-genre");
       const modalDescription = document.querySelector("#modal-description");
-      const modalImages = [
-        document.querySelector("#modal-image-1"),
-        document.querySelector("#modal-image-2"),
-        document.querySelector("#modal-image-3")
-      ];
+      const modalImage = document.querySelector("#modal-media");
+      const modalVideo = document.querySelector("#modal-video");
+      const dotsContainer = document.querySelector(".carousel-dots");
+      const prevBtn = document.querySelector(".carousel-btn.prev");
+      const nextBtn = document.querySelector(".carousel-btn.next");
 
       const placeholders = [
-        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%230f0f0f'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffb35c' font-family='Sora, sans-serif' font-size='24'>Preview 01</text></svg>",
-        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%23101010'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffb35c' font-family='Sora, sans-serif' font-size='24'>Preview 02</text></svg>",
-        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%23131313'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffb35c' font-family='Sora, sans-serif' font-size='24'>Preview 03</text></svg>"
+        {
+          type: "image",
+          src: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%230f0f0f'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffb35c' font-family='Sora, sans-serif' font-size='24'>Preview 01</text></svg>"
+        },
+        {
+          type: "image",
+          src: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%23101010'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffb35c' font-family='Sora, sans-serif' font-size='24'>Preview 02</text></svg>"
+        },
+        {
+          type: "image",
+          src: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='360'><rect width='100%25' height='100%25' fill='%23131313'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffb35c' font-family='Sora, sans-serif' font-size='24'>Preview 03</text></svg>"
+        },
+        {
+          type: "video",
+          src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+        }
       ];
+
+      let currentIndex = 0;
+
+      const renderDots = (items) => {
+        dotsContainer.innerHTML = "";
+        items.forEach((_, index) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "dot";
+          dot.setAttribute("aria-label", `Preview ${index + 1}`);
+          dot.addEventListener("click", () => showSlide(index));
+          dotsContainer.appendChild(dot);
+        });
+      };
+
+      const showSlide = (index) => {
+        const items = placeholders;
+        currentIndex = (index + items.length) % items.length;
+        const item = items[currentIndex];
+        if (item.type === "image") {
+          modalVideo.setAttribute("hidden", "");
+          modalVideo.pause();
+          modalImage.removeAttribute("hidden");
+          modalImage.src = item.src;
+          modalImage.alt = `${modalTitle.textContent} preview ${currentIndex + 1}`;
+        } else {
+          modalImage.setAttribute("hidden", "");
+          modalVideo.removeAttribute("hidden");
+          modalVideo.querySelector("source").src = item.src;
+          modalVideo.load();
+        }
+        Array.from(dotsContainer.children).forEach((dot, dotIndex) => {
+          dot.classList.toggle("active", dotIndex === currentIndex);
+        });
+      };
 
       const openModal = (card) => {
         modalTitle.textContent = card.dataset.title;
         modalGenre.textContent = card.dataset.genre;
         modalDescription.textContent = card.dataset.description;
-        modalImages.forEach((img, index) => {
-          img.src = placeholders[index];
-          img.alt = `${card.dataset.title} preview ${index + 1}`;
-        });
+        renderDots(placeholders);
+        showSlide(0);
         modal.removeAttribute("hidden");
         overlay.removeAttribute("hidden");
       };
@@ -479,12 +530,15 @@
       const closeModal = () => {
         modal.setAttribute("hidden", "");
         overlay.setAttribute("hidden", "");
+        modalVideo.pause();
       };
 
       cards.forEach((card) => {
         card.addEventListener("click", () => openModal(card));
       });
 
+      prevBtn.addEventListener("click", () => showSlide(currentIndex - 1));
+      nextBtn.addEventListener("click", () => showSlide(currentIndex + 1));
       document.querySelector("[data-modal-close]").addEventListener("click", closeModal);
       overlay.addEventListener("click", closeModal);
       document.addEventListener("keydown", (event) => {
