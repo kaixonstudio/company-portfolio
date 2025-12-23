@@ -495,9 +495,34 @@ a {
 
 .footer {
   padding: 2rem 8vw 3rem;
-  text-align: center;
   color: var(--muted);
   font-size: 0.85rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: var(--text);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.7rem;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--glow);
 }
 
 @media (max-width: 900px) {
@@ -540,5 +565,14 @@ a {
   .reviews__grid,
   .clients__grid {
     grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
   }
 }
