@@ -613,6 +613,7 @@ a {
   width: 36px;
   height: 36px;
   cursor: pointer;
+  z-index: 2;
 }
 
 .modal-header {
@@ -621,6 +622,7 @@ a {
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+  padding-right: 3rem;
 }
 
 .modal-header h2 {
@@ -798,4 +800,7 @@ a {
   .clients__grid {
     grid-template-columns: 1fr;
   }
+}
+.purchase-btn {
+  white-space: nowrap;
 }

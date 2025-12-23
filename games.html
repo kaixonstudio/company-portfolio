@@ -424,7 +424,7 @@
             <h2 id="modal-title">Game title</h2>
             <p id="modal-genre" class="modal-genre">Genre</p>
           </div>
-          <a class="btn primary" href="mailto:abhayv495@gmail.com">Purchase</a>
+          <a class="btn primary purchase-btn" href="mailto:abhayv495@gmail.com">Purchase</a>
         </div>
         <p id="modal-description" class="modal-description">
           Game description.
@@ -483,6 +483,7 @@
       ];
 
       let currentIndex = 0;
+      let autoScrollTimer;
 
       const renderDots = (items) => {
         dotsContainer.innerHTML = "";
@@ -525,12 +526,17 @@
         showSlide(0);
         modal.removeAttribute("hidden");
         overlay.removeAttribute("hidden");
+        clearInterval(autoScrollTimer);
+        autoScrollTimer = setInterval(() => {
+          showSlide(currentIndex + 1);
+        }, 2000);
       };
 
       const closeModal = () => {
         modal.setAttribute("hidden", "");
         overlay.setAttribute("hidden", "");
         modalVideo.pause();
+        clearInterval(autoScrollTimer);
       };
 
       cards.forEach((card) => {
