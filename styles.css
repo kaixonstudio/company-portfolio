@@ -499,25 +499,41 @@ a {
   font-size: 0.85rem;
 }
 
-.footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
+.contact-socials {
+  margin-top: 2rem;
+}
+
+.contact-socials span {
+  display: inline-block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
 }
 
 .social-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
 }
 
 .social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--text);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 0.7rem;
+}
+
+.social-links svg {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+  filter: drop-shadow(0 0 6px rgba(255, 122, 26, 0.4));
 }
 
 .social-links a:hover {
@@ -565,14 +581,5 @@ a {
   .reviews__grid,
   .clients__grid {
     grid-template-columns: 1fr;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .social-links {
-    flex-wrap: wrap;
   }
 }
